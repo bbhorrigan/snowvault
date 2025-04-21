@@ -9,7 +9,7 @@ class VaultManager:
         self.client = hvac.Client(url=self.vault_addr, token=self.token)
 
     def write_secret(self, secret_name, secret_data):
-        """Write a secret to HashiCorp Vault."""
+        """Write secret to HashiCorp Vault."""
         self.client.secrets.kv.v2.create_or_update_secret(
             path=f"{self.vault_path}/{secret_name}",
             secret=secret_data
